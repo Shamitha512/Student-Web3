@@ -35,6 +35,17 @@ const userSchema = new mongoose.Schema(
         studentId: {
             type: String,
             default: null
+        },
+
+        rewardPoints: {
+            type: Number,
+            default: 0
+        },
+
+        achievementLevel: {
+            type: String,
+            enum: ["Beginner", "Explorer", "Achiever", "Star", "Elite"],
+            default: "Beginner"
         }
     },
     {

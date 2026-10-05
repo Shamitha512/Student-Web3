@@ -10,7 +10,8 @@ const credentialSchema = new mongoose.Schema(
 
         title: {
             type: String,
-            required: true
+            required: true,
+            trim: true
         },
 
         description: {
@@ -25,24 +26,28 @@ const credentialSchema = new mongoose.Schema(
                 "event-badge",
                 "certificate",
                 "achievement",
-                "membership"
+                "membership",
+                "internship",
+                "course",
+                "project"
             ],
             default: "achievement"
         },
 
+        proofUrl: {
+            type: String,
+            default: ""
+        },
+
         issuer: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        },
-
-        blockchainCredentialId: {
-            type: String,
+            ref: "User",
             default: null
         },
 
-        transactionHash: {
-            type: String,
-            default: null
+        rewardPoints: {
+            type: Number,
+            default: 0
         },
 
         verified: {
